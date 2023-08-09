@@ -4,22 +4,27 @@ from ib_insync import *
 import pytz
 import creds
 import time
+import threading
+import pandas as pd
+from concurrent.futures import ThreadPoolExecutor
 timeZ_Ny = pytz.timezone('America/New_York')
-
-
+lock = threading.Lock()
 def login():
-        while True:
-            try:
-                random_id = random.randint(0, 9999)
-                ib=IB()
-                ibs=ib.connect('127.0.0.1', creds.port, clientId=random_id)
-                print(datetime.now(timeZ_Ny) ," : ","connected")
-                return ibs
-            except Exception as e:
-                print(e)
-                print(datetime.now(timeZ_Ny) ," : ","retrying to login in 5 seconds")
-                time.sleep(5)
-                pass
+        with lock:
+            print("trying to login")
+            while True:  
+                try:
+                    random_id = random.randint(0, 9999)
+                    ib=IB()
+                    ibs=ib.connect('127.0.0.1', creds.port, clientId=random_id)
+                    print(datetime.now(timeZ_Ny) ," : ","connected ")
+                    return ibs
+                except Exception as e:
+                    print(e)
+                    print(datetime.now(timeZ_Ny) ," : ","retrying to login in 60 seconds")
+                    time.sleep(65)
+                    pass
+            
 def isconnected(ib):
     if(ib.isConnected()):
         print(datetime.now(timeZ_Ny) ," : ","connected")
@@ -45,13 +50,13 @@ def top_gainer_subscription(ib):
 
     # the tagValues are given as 3rd argument; the 2nd argument must always be an empty list
     # (IB has not documented the 2nd argument and it's not clear what it does)
+    print("scanning market")
     scanData = ib.reqScannerData(sub, [], tagValues)
-
     symbols = [sd.contractDetails.contract for sd in scanData]
     print(len(symbols))
     return symbols
 def get_options_chain(contract,ib):
-    ib.reqMarketDataType(4)
+    ib.reqMarketDataType(1)
     chains = ib.reqSecDefOptParams(contract.symbol, '', contract.secType, contract.conId)
     util.df(chains)
     chains = next(c for c in chains)
@@ -92,4 +97,11 @@ def filter_contracts(ib,contracts):
                 'symbol':contract.symbol,
             'contract': contract,
             'gain': percentage_change})
+    print(selected)
+    top_options_df = pd.DataFrame(selected)
+    with lock:
+        existing_df=pd.read_csv("options.csv")
+        final_df = pd.concat([existing_df, top_options_df], ignore_index=True)
+        final_df.to_csv("options.csv", index=False)
+
     return selected

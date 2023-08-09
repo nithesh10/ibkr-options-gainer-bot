@@ -1,0 +1,9 @@
+,symbol,contract,gain
+1,BOIL,"Option(conId=639338414, symbol='BOIL', lastTradeDateOrContractMonth='20230818', strike=115.0, right='C', multiplier='100', exchange='SMART', currency='USD', localSymbol='BOIL  230818C00115000', tradingClass='BOIL')",180.0
+3,SMH,"Option(conId=644205447, symbol='SMH', lastTradeDateOrContractMonth='20230818', strike=152.0, right='P', multiplier='100', exchange='SMART', currency='USD', localSymbol='SMH   230818P00152000', tradingClass='SMH')",68.18181818181817
+4,SMH,"Option(conId=597377716, symbol='SMH', lastTradeDateOrContractMonth='20230915', strike=140.0, right='P', multiplier='100', exchange='SMART', currency='USD', localSymbol='SMH   230915P00140000', tradingClass='SMH')",45.33333333333334
+2,SMH,"Option(conId=644205332, symbol='SMH', lastTradeDateOrContractMonth='20230818', strike=149.0, right='P', multiplier='100', exchange='SMART', currency='USD', localSymbol='SMH   230818P00149000', tradingClass='SMH')",37.499999999999986
+6,BMRN,"Option(conId=636884281, symbol='BMRN', lastTradeDateOrContractMonth='20230818', strike=100.0, right='C', multiplier='100', exchange='SMART', currency='USD', localSymbol='BMRN  230818C00100000', tradingClass='BMRN')",33.33333333333335
+5,SMH,"Option(conId=597377796, symbol='SMH', lastTradeDateOrContractMonth='20230915', strike=150.0, right='P', multiplier='100', exchange='SMART', currency='USD', localSymbol='SMH   230915P00150000', tradingClass='SMH')",32.9268292682927
+0,BOIL,"Option(conId=639338642, symbol='BOIL', lastTradeDateOrContractMonth='20230818', strike=72.0, right='C', multiplier='100', exchange='SMART', currency='USD', localSymbol='BOIL  230818C00072000', tradingClass='BOIL')",28.54545454545455
+7,BX,"Option(conId=593225484, symbol='BX', lastTradeDateOrContractMonth='20230915', strike=95.0, right='P', multiplier='100', exchange='SMART', currency='USD', localSymbol='BX    230915P00095000', tradingClass='BX')",27.85714285714287
