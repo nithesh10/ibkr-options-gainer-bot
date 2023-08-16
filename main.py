@@ -8,6 +8,7 @@ import multiprocessing as mp
 import concurrent.futures as cf
 from itertools import chain
 from datetime import datetime
+
 def process_symbols_batch(symbols_batch):
     results = []
     ibkr = IBWrapper()
@@ -27,7 +28,7 @@ def main_process(ibkr):
     symbols_batches = [symbols[i:i+5] for i in range(0, len(symbols), 5)]
     #symbols_batches=[symbols_batches[0],symbols_batches[1],symbols_batches[2]]
     # Using ProcessPoolExecutor to run process_symbols_batch in parallel
-    with cf.ProcessPoolExecutor(max_workers=7) as executor:
+    with cf.ProcessPoolExecutor(max_workers=10) as executor:
         results = list(executor.map(process_symbols_batch, symbols_batches))
     # Flatten the results
     top_option_list = list(chain.from_iterable(results))

@@ -63,10 +63,9 @@ def get_options_chain(contract,ib):
     current_date = datetime.now()
     [ticker] = ib.reqTickers(contract)
     spxValue = ticker.marketPrice()
-    
     strikes = [strike for strike in chains.strikes
         if strike % 5 == 0
-        and spxValue - (creds.strikes_range*spxValue/100) < strike < spxValue + (creds.strikes_range*spxValue/100)]
+        and spxValue - 20 < strike < spxValue + 20]
     expirations = [
         exp for exp in chains.expirations
         if (datetime.strptime(exp, '%Y%m%d') - current_date).days <= creds.options_days_to_Expiry
@@ -82,28 +81,38 @@ def get_options_chain(contract,ib):
     contracts = ib.qualifyContracts(*contracts)
     print(contract.symbol,len(contracts))
     return contracts
+def process_ticker(ticker, contract,ib):
+    if ((ticker.volume < creds.option_contract_volume) or (str(ticker.volume) == "nan")):
+        return None
+    current_price = ticker.last
+    if current_price > creds.option_max_price:
+        return None
+    print("price is", current_price, "volume is ", ticker.volume)
+    # Calculate the percentage change
+    bars = ib.reqHistoricalData(contract, endDateTime='', durationStr='1 D', barSizeSetting='1 min', whatToShow='TRADES', useRTH=True)
+    open_price = bars[0].open
+    percentage_change = ((current_price - open_price) / open_price) * 100
+    if percentage_change >= creds.option_perc:
+        return {
+            'symbol': contract.symbol,
+            'contract': contract,
+            'gain': percentage_change}
+    return None
 
-def filter_contracts(ib,contracts):
-    selected=[]
-    prices=ib.reqTickers(*contracts)
-    for ticker,contract in zip(prices,contracts):
-        if ((ticker.volume<creds.option_contract_volume) or (str(ticker.volume) == "nan")) :
-            continue
-        current_price = ticker.last
-        if current_price > creds.option_max_price:
-            continue
-        print("price is",current_price,"volume is ",ticker.volume)
-        # Calculate the percentage change
-        bars = ib.reqHistoricalData(contract, endDateTime='', durationStr='1 D', barSizeSetting='1 min', whatToShow='TRADES', useRTH=True)
-        open_price = bars[0].open
-        percentage_change = ((current_price - open_price) / open_price) * 100
-        if percentage_change >= creds.option_perc:
-                selected.append({
-                'symbol':contract.symbol,
-                'contract': contract,
-                'gain': percentage_change})
+def filter_contracts(ib, contracts):
+    selected = []
+    prices = ib.reqTickers(*contracts)
+    
+    with ThreadPoolExecutor(max_workers=25) as executor:
+        futures = [executor.submit(process_ticker, ticker, contract,ib) for ticker, contract in zip(prices, contracts)]
+        for future in as_completed(futures):
+            result = future.result()
+            if result:
+                selected.append(result)
+    
     print(selected)
     top_options_df = pd.DataFrame(selected)
+    
     with lock:
         try:
             existing_df = pd.read_csv("options.csv")

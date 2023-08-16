@@ -8,6 +8,7 @@ end_minutes=0
 #stock filter
 scan_code="TOP_OPT_IMP_VOLAT_GAIN" 
 #"TOP_OPEN_PERC_GAIN" #HOT_BY_OPT_VOLUME #OPT_OPEN_INTEREST_MOST_ACTIVE #OPT_VOLUME_MOST_ACTIVE #TOP_OPT_IMP_VOLAT_GAIN
+strikes_range=25 #%
 stock_price_above=75
 stock_price_below=750
 stock_option_volume=500
