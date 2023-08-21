@@ -77,7 +77,7 @@ def check_close_time(ib):
     local_now = datetime.now()
     ny_time = local_now.astimezone(eastern)
 
-    close_time = ny_time.replace(hour=11, minute=33, second=0, microsecond=0)
+    close_time = ny_time.replace(hour=creds.end_hour, minute=creds.end_minutes, second=0, microsecond=0)
 
     # Wait till the close time
     while local_now.astimezone(eastern) < close_time:
