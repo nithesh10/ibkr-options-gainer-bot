@@ -1,8 +1,8 @@
 port=7497      #7496 -paper trading #7497-live accounts
 
-start_hour=9
-start_minutes=30
-end_hour=16
+start_hour=10
+start_minutes=15
+end_hour=12
 end_minutes=0
 
 

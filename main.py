@@ -1,3 +1,4 @@
+import time
 from ib_insync import *
 import pandas as pd
 from helpers.ib_func import close_all_positions, get_options_chain, login, top_gainer_subscription,filter_contracts
@@ -10,6 +11,7 @@ from itertools import chain
 from datetime import datetime
 import creds
 import pytz
+eastern = pytz.timezone('US/Eastern')
 def process_symbols_batch(symbols_batch):
     results = []
     ibkr = IBWrapper()
@@ -73,7 +75,7 @@ def trader(ib):
         tp_trade = ib.placeOrder(contract, tp_order)
         print("tp limit order placed")
 def check_close_time(ib):
-    eastern = pytz.timezone('US/Eastern')
+    
     local_now = datetime.now()
     ny_time = local_now.astimezone(eastern)
 
@@ -86,14 +88,20 @@ def check_close_time(ib):
         local_now = datetime.now()
     close_all_positions(ib)
 if __name__ == '__main__':
-    
-    now=datetime.now()
-    mp.set_start_method('spawn')
-    ibkr = IBWrapper()
-    ibkr.connect()
-    main_process(ibkr)
-    now2=datetime.now()
-    print("Total Time Taken to scan is",now2-now)
-    ibkr.connect()
-    trader(ibkr.ib)
-    check_close_time(ibkr.ib)
+    while True:
+        local_now=datetime.now()
+        ny_time = local_now.astimezone(eastern)
+        if(ny_time>=ny_time.replace(hour=creds.start_hour,minute=creds.start_minutes)):
+            print("time is:-",ny_time)
+            mp.set_start_method('spawn')
+            ibkr = IBWrapper()
+            ibkr.connect()
+            main_process(ibkr)
+            now2=datetime.now()
+            print("Total Time Taken to scan is",now2-now)
+            ibkr.connect()
+            trader(ibkr.ib)
+            check_close_time(ibkr.ib)
+            exit()
+        else:
+            time.sleep(1)
