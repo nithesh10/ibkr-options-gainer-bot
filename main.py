@@ -11,6 +11,7 @@ from itertools import chain
 from datetime import datetime
 import creds
 import pytz
+from helpers.log import logger
 eastern = pytz.timezone('US/Eastern')
 def process_symbols_batch(symbols_batch):
     results = []
@@ -88,6 +89,7 @@ def check_close_time(ib):
         local_now = datetime.now()
     close_all_positions(ib)
 if __name__ == '__main__':
+    logger("storage")
     while True:
         local_now=datetime.now()
         ny_time = local_now.astimezone(eastern)
