@@ -1,4 +1,5 @@
 from datetime import datetime
+import math
 import random
 from ib_insync import *
 import pytz
@@ -129,11 +130,13 @@ def filter_contracts(ib, contracts,symbol_direction_dict):
             print(str(ticker.volume),"volume condition not met")
             return None
         current_price = ticker.last
-        if current_price > creds.option_max_price:
+        if math.isnan(current_price):
+             return None
+        elif current_price > creds.option_max_price:
             if current_price<creds.option_min_price:
                 print("price condition not met",current_price)
                 return None
-        print("price is", current_price, "volume is ", ticker.volume)
+        print("price is", current_price, "volume is ", ticker.volume,"symbol is",contract.symbol)
         bid_price=ticker.bid #test
         ask_price=ticker.ask #test
         if(abs(ask_price-bid_price)>creds.bid_ask_diff):
@@ -141,7 +144,7 @@ def filter_contracts(ib, contracts,symbol_direction_dict):
              return None
         
         open_interest = ticker.futuresOpenInterest
-        if(open_interest != "nan"):
+        if(str(open_interest) != "nan"):
             print("OI is ",open_interest)
             if(open_interest<creds.min_open_intrest):
                 return None
