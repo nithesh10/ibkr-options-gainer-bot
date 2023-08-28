@@ -89,10 +89,8 @@ def trader(ib):
     top_option_df=pd.read_csv("options_final.csv")
     top_gainers = top_option_df.loc[top_option_df.groupby('symbol')['gain'].idxmax()]
     top_gainers = top_gainers[top_gainers['gain'] > 0]
-    top_losers = top_option_df.loc[top_option_df.groupby('symbol')['gain'].idxmin()]
-    top_losers= top_losers[top_losers['gain'] < 0]
+    
     top_gainers.to_csv("gainers.csv")
-    top_losers.to_csv("losers.csv")
     contracts=top_gainers["contract"].to_list()
     contracts=[eval(contract) for contract in contracts]
     contracts = ib.qualifyContracts(*contracts)
@@ -127,40 +125,44 @@ def trader(ib):
         
         tp_trade = ib.placeOrder(contract, tp_order)
         print("tp limit order placed")
-    contracts=top_losers["contract"].to_list()
-    contracts=[eval(contract) for contract in contracts]
-    contracts = ib.qualifyContracts(*contracts)
-    for contract in contracts:
-        details = ib.reqContractDetails(contract)
-        min_tick=details[0].minTick
-        
-        [ticker] = ib.reqTickers(contract)
-        bid_price = ticker.bid
-        ask_price = ticker.ask
-        if creds.mid_price==1:
-            buy_order = Order(action='SELL',orderType="PEG MID",totalQuantity=creds.contracts_qty)
-        elif creds.mid_price==-1:
-            mid_price = float((bid_price + ask_price) / 2)
-            print(mid_price)
-            buy_order = LimitOrder('SELL', creds.contracts_qty,bid_price)  # Assuming you're buying 1 contract. Modify the quantity as needed.
-        else:
-            buy_order = MarketOrder('SELL', creds.contracts_qty)
-        buy_trade = ib.placeOrder(contract, buy_order)
-        
-        while not buy_trade.isDone():
-            ib.sleep(1)
-        # Get the fill price of the buy order
-        print(buy_trade)
-        fill_price = buy_trade.orderStatus.avgFillPrice
-        # Create take profit order with OCA group
-        take_profit_price = get_valid_precision(abs(fill_price) - ((creds.tp_perc/100)*abs(fill_price)),min_tick)  # Adjust for 20 cents
+    if "SELL" in creds.direction:
+        top_losers = top_option_df.loc[top_option_df.groupby('symbol')['gain'].idxmin()]
+        top_losers= top_losers[top_losers['gain'] < 0]
+        top_losers.to_csv("losers.csv")
+        contracts=top_losers["contract"].to_list()
+        contracts=[eval(contract) for contract in contracts]
+        contracts = ib.qualifyContracts(*contracts)
+        for contract in contracts:
+            details = ib.reqContractDetails(contract)
+            min_tick=details[0].minTick
+            
+            [ticker] = ib.reqTickers(contract)
+            bid_price = ticker.bid
+            ask_price = ticker.ask
+            if creds.mid_price==1:
+                buy_order = Order(action='SELL',orderType="PEG MID",totalQuantity=creds.contracts_qty)
+            elif creds.mid_price==-1:
+                mid_price = float((bid_price + ask_price) / 2)
+                print(mid_price)
+                buy_order = LimitOrder('SELL', creds.contracts_qty,bid_price)  # Assuming you're buying 1 contract. Modify the quantity as needed.
+            else:
+                buy_order = MarketOrder('SELL', creds.contracts_qty)
+            buy_trade = ib.placeOrder(contract, buy_order)
+            
+            while not buy_trade.isDone():
+                ib.sleep(1)
+            # Get the fill price of the buy order
+            print(buy_trade)
+            fill_price = buy_trade.orderStatus.avgFillPrice
+            # Create take profit order with OCA group
+            take_profit_price = get_valid_precision(abs(fill_price) - ((creds.tp_perc/100)*abs(fill_price)),min_tick)  # Adjust for 20 cents
 
-        tp_order = LimitOrder('BUY', creds.contracts_qty, take_profit_price)
-        #tp_order.ocaGroup = 'TP_OCA_GROUP'
-        #tp_order.ocaType = 1  # Cancel all remaining orders in the group when one fills
-        
-        tp_trade = ib.placeOrder(contract, tp_order)
-        print("tp limit order placed")
+            tp_order = LimitOrder('BUY', creds.contracts_qty, take_profit_price)
+            #tp_order.ocaGroup = 'TP_OCA_GROUP'
+            #tp_order.ocaType = 1  # Cancel all remaining orders in the group when one fills
+            
+            tp_trade = ib.placeOrder(contract, tp_order)
+            print("tp limit order placed")
 def check_close_time(ib):
     
     local_now = datetime.now()
