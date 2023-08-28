@@ -133,9 +133,11 @@ def filter_contracts(ib, contracts,symbol_direction_dict):
         if math.isnan(current_price):
              return None
         elif float(current_price) > float(creds.option_max_price):
-            if float(current_price)<float(creds.option_min_price):
-                print("price condition not met",current_price)
-                return None
+            print("price condition not met",current_price)
+            return None
+        elif float(current_price)<float(creds.option_min_price):
+            print("price condition not met",current_price)
+            return None
         print("price is", current_price, "volume is ", ticker.volume,"symbol is",contract.symbol)
         bid_price=ticker.bid #test
         ask_price=ticker.ask #test
