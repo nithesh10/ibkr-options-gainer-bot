@@ -143,7 +143,7 @@ def filter_contracts(ib, contracts,symbol_direction_dict):
         open_interest = ticker.futuresOpenInterest
         if(open_interest != "nan"):
             print("OI is ",open_interest)
-            if(open_interest>creds.max_open_intrest):
+            if(open_interest<creds.min_open_intrest):
                 return None
         print("filter passed")
         return (contract, ticker)

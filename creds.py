@@ -31,7 +31,7 @@ option_min_price=1
 options_days_to_Expiry=30
 option_perc=20
 bid_ask_diff=0.30
-max_open_intrest=5000
+min_open_intrest=500
 
 #parallelize
 workers=8
