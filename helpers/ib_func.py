@@ -110,14 +110,14 @@ def check_perc_change(ib,contract,ticker,direction):
             percentage_change = ((current_price - open_price) / open_price) * 100
             #percentage_change=100
             if str(direction)=="BUY":
-                if percentage_change >= creds.option_perc:
+                if abs(percentage_change) >= creds.option_perc:
                         return ({
                         'symbol':contract.symbol,
                         'contract': contract,
                         'gain': percentage_change})
             else:
                 print("direction is",direction," and percentage change is ",percentage_change)
-                if percentage_change <= creds.option_perc:
+                if abs(percentage_change) <= creds.option_perc:
                         return ({
                         'symbol':contract.symbol,
                         'contract': contract,
