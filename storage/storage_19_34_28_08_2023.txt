@@ -1,0 +1,34 @@
+time is:- 2023-08-28 10:04:24.215804-04:00
+trying to login
+2023-08-28 10:04:24.531035-04:00  :  connected 
+scanning market
+Traceback (most recent call last):
+  File "f:\fintech\dinesh\main.py", line 142, in <module>
+    main_process(ibkr)
+  File "f:\fintech\dinesh\main.py", line 35, in main_process
+    symbols = top_gainer_subscription(ib,code)
+  File "f:\fintech\dinesh\helpers\ib_func.py", line 71, in top_gainer_subscription
+    scanData = ib.reqScannerData(sub, [], tagValues)
+  File "C:\Users\anith\AppData\Roaming\Python\Python310\site-packages\ib_insync\ib.py", line 1397, in reqScannerData
+    return self._run(
+  File "C:\Users\anith\AppData\Roaming\Python\Python310\site-packages\ib_insync\ib.py", line 308, in _run
+    return util.run(*awaitables, timeout=self.RequestTimeout)
+  File "C:\Users\anith\AppData\Roaming\Python\Python310\site-packages\ib_insync\util.py", line 332, in run
+    result = loop.run_until_complete(task)
+  File "C:\Program Files\Python310\lib\asyncio\base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "C:\Users\anith\AppData\Roaming\Python\Python310\site-packages\ib_insync\ib.py", line 1975, in reqScannerDataAsync
+    dataList = self.reqScannerSubscription(
+  File "C:\Users\anith\AppData\Roaming\Python\Python310\site-packages\ib_insync\ib.py", line 1425, in reqScannerSubscription
+    self.client.reqScannerSubscription(
+  File "C:\Users\anith\AppData\Roaming\Python\Python310\site-packages\ib_insync\client.py", line 717, in reqScannerSubscription
+    self.send(
+  File "C:\Users\anith\AppData\Roaming\Python\Python310\site-packages\ib_insync\client.py", line 250, in send
+    s = ''.join(f'{v.tag}={v.value};' for v in field)
+  File "C:\Users\anith\AppData\Roaming\Python\Python310\site-packages\ib_insync\client.py", line 250, in <genexpr>
+    s = ''.join(f'{v.tag}={v.value};' for v in field)
+AttributeError: 'str' object has no attribute 'tag'
+Exception ignored in: <helpers.log.logger.<locals>.Tee object at 0x00000152F309B190>
+AttributeError: 'Tee' object has no attribute 'flush'
+Exception ignored in sys.unraisablehook: <built-in function unraisablehook>
+AttributeError: 'Tee' object has no attribute 'flush'

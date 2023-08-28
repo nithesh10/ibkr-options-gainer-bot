@@ -1,0 +1,17 @@
+time is:- 2023-08-28 11:40:56.305246-04:00
+trying to login
+2023-08-28 11:40:56.418233-04:00  :  connected 
+Total Time Taken to scan is 0:00:00.113996
+trying to login
+2023-08-28 11:40:56.630993-04:00  :  connected 
+[Option(conId=555936613, symbol='NVDA', lastTradeDateOrContractMonth='20230915', strike=400.0, right='P', multiplier='100', exchange='SMART', currency='USD', localSymbol='NVDA  230915P00400000', tradingClass='NVDA')]
+Traceback (most recent call last):
+  File "f:\fintech\dinesh\main.py", line 195, in <module>
+    trader(ibkr.ib)
+  File "f:\fintech\dinesh\main.py", line 102, in trader
+    print(details[0]["contract"])
+TypeError: 'ContractDetails' object is not subscriptable
+Exception ignored in: <helpers.log.logger.<locals>.Tee object at 0x000001AE1F5785E0>
+AttributeError: 'Tee' object has no attribute 'flush'
+Exception ignored in sys.unraisablehook: <built-in function unraisablehook>
+AttributeError: 'Tee' object has no attribute 'flush'

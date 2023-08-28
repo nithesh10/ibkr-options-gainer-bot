@@ -1,0 +1,52 @@
+time is:- 2023-08-28 10:40:47.455083-04:00
+trying to login
+2023-08-28 10:40:47.568846-04:00  :  connected 
+['BUY', 'SELL']
+TOP_OPT_IMP_VOLAT_GAIN 5 BUY
+scanning market
+50
+TOP_OPEN_PERC_LOSE 5 SELL
+scanning market
+Error 162, reqId 3: Historical Market Data Service error message:API scanner subscription cancelled: 3
+50
+{'VFS': 'BUY', 'KMX': 'BUY', 'FRHC': 'BUY', 'ATVI': 'BUY', 'NKE': 'BUY', 'MMM': 'SELL', 'ABT': 'SELL', 'NVDA': 'SELL', 'AMD': 'SELL', 'MDB': 'SELL'}
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Program Files\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "C:\Program Files\Python310\lib\concurrent\futures\process.py", line 205, in _process_chunk
+    return [fn(*args) for args in chunk]
+  File "C:\Program Files\Python310\lib\concurrent\futures\process.py", line 205, in <listcomp>
+    return [fn(*args) for args in chunk]
+  File "f:\fintech\dinesh\main.py", line 23, in process_symbols_batch
+    filtered_results = filter_contracts(ibkr.ib, contracts,symbol_direction_dict)
+  File "f:\fintech\dinesh\helpers\ib_func.py", line 172, in filter_contracts
+    i=process_selected_item(item,symbol_direction_dict)
+  File "f:\fintech\dinesh\helpers\ib_func.py", line 157, in process_selected_item
+    direction = symbol_direction_dict.get(symbol)
+AttributeError: 'str' object has no attribute 'get'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "f:\fintech\dinesh\main.py", line 146, in <module>
+    main_process(ibkr)
+  File "f:\fintech\dinesh\main.py", line 54, in main_process
+    results = list(executor.map(process_symbols_batch, symbols_batches,symbol_direction_dict))
+  File "C:\Program Files\Python310\lib\concurrent\futures\process.py", line 570, in _chain_from_iterable_of_lists
+    for element in iterable:
+  File "C:\Program Files\Python310\lib\concurrent\futures\_base.py", line 621, in result_iterator
+    yield _result_or_cancel(fs.pop())
+  File "C:\Program Files\Python310\lib\concurrent\futures\_base.py", line 319, in _result_or_cancel
+    return fut.result(timeout)
+  File "C:\Program Files\Python310\lib\concurrent\futures\_base.py", line 458, in result
+    return self.__get_result()
+  File "C:\Program Files\Python310\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+AttributeError: 'str' object has no attribute 'get'
+Exception ignored in: <helpers.log.logger.<locals>.Tee object at 0x0000020F8B4EB400>
+AttributeError: 'Tee' object has no attribute 'flush'
+Exception ignored in sys.unraisablehook: <built-in function unraisablehook>
+AttributeError: 'Tee' object has no attribute 'flush'

@@ -1,0 +1,355 @@
+time is:- 2023-08-28 10:51:41.020574-04:00
+trying to login
+2023-08-28 10:51:41.123786-04:00  :  connected 
+['BUY', 'SELL']
+TOP_OPT_IMP_VOLAT_GAIN 5 BUY
+scanning market
+50
+TOP_OPEN_PERC_LOSE 5 SELL
+scanning market
+Error 162, reqId 3: Historical Market Data Service error message:API scanner subscription cancelled: 3
+50
+{'VFS': 'SELL', 'FRHC': 'BUY', 'KMX': 'BUY', 'ATVI': 'BUY', 'NKE': 'BUY', 'NVDA': 'SELL', 'MMM': 'SELL', 'ABT': 'SELL', 'AMD': 'SELL'}
+got all results
+   symbol                                           contract       gain
+0    NVDA  Option(conId=642063674, symbol='NVDA', lastTra... -28.571429
+1    NVDA  Option(conId=642063775, symbol='NVDA', lastTra... -37.500000
+2    NVDA  Option(conId=642063937, symbol='NVDA', lastTra...  -5.555556
+3    NVDA  Option(conId=642063977, symbol='NVDA', lastTra...  -4.347826
+4    NVDA  Option(conId=642064019, symbol='NVDA', lastTra...   6.666667
+5    NVDA  Option(conId=642064073, symbol='NVDA', lastTra...  12.195122
+6    NVDA  Option(conId=645484066, symbol='NVDA', lastTra... -10.714286
+7    NVDA  Option(conId=555936613, symbol='NVDA', lastTra...  19.387755
+8    NVDA  Option(conId=623629949, symbol='NVDA', lastTra...  18.307692
+9    NVDA  Option(conId=646348460, symbol='NVDA', lastTra...   9.114583
+10   NVDA  Option(conId=642062985, symbol='NVDA', lastTra... -31.363636
+11   NVDA  Option(conId=642063042, symbol='NVDA', lastTra... -39.201995
+12   NVDA  Option(conId=642063092, symbol='NVDA', lastTra... -42.424242
+13   NVDA  Option(conId=642063138, symbol='NVDA', lastTra... -45.724907
+14   NVDA  Option(conId=642063189, symbol='NVDA', lastTra... -48.940092
+15   NVDA  Option(conId=642063239, symbol='NVDA', lastTra... -54.137931
+16   NVDA  Option(conId=642063284, symbol='NVDA', lastTra... -56.541353
+17   NVDA  Option(conId=642063329, symbol='NVDA', lastTra... -58.039216
+18   NVDA  Option(conId=642063373, symbol='NVDA', lastTra... -60.779221
+19   NVDA  Option(conId=642063422, symbol='NVDA', lastTra... -63.934426
+20   NVDA  Option(conId=642063470, symbol='NVDA', lastTra... -65.822785
+21   NVDA  Option(conId=642063508, symbol='NVDA', lastTra... -65.555556
+22   NVDA  Option(conId=642063556, symbol='NVDA', lastTra... -66.666667
+23   NVDA  Option(conId=642210462, symbol='NVDA', lastTra... -67.567568
+24   NVDA  Option(conId=643531865, symbol='NVDA', lastTra... -67.045455
+25   NVDA  Option(conId=642210527, symbol='NVDA', lastTra... -65.625000
+26   NVDA  Option(conId=643531945, symbol='NVDA', lastTra... -67.241379
+27   NVDA  Option(conId=642210584, symbol='NVDA', lastTra... -68.181818
+28   NVDA  Option(conId=642210632, symbol='NVDA', lastTra... -62.068966
+29   NVDA  Option(conId=645047563, symbol='NVDA', lastTra... -22.972361
+30   NVDA  Option(conId=645047656, symbol='NVDA', lastTra... -32.427184
+31   NVDA  Option(conId=645047763, symbol='NVDA', lastTra... -27.672956
+32   NVDA  Option(conId=645047870, symbol='NVDA', lastTra... -35.526316
+33   NVDA  Option(conId=645047975, symbol='NVDA', lastTra... -38.132296
+34   NVDA  Option(conId=645048097, symbol='NVDA', lastTra... -35.532995
+35   NVDA  Option(conId=645048230, symbol='NVDA', lastTra... -43.333333
+36   NVDA  Option(conId=645048344, symbol='NVDA', lastTra... -42.857143
+37   NVDA  Option(conId=645048464, symbol='NVDA', lastTra... -45.454545
+38   NVDA  Option(conId=645048693, symbol='NVDA', lastTra... -47.901235
+39   NVDA  Option(conId=645048784, symbol='NVDA', lastTra... -45.454545
+40   NVDA  Option(conId=623628699, symbol='NVDA', lastTra... -25.451264
+41   NVDA  Option(conId=623628740, symbol='NVDA', lastTra... -22.246220
+42   NVDA  Option(conId=623628811, symbol='NVDA', lastTra... -23.658537
+43   NVDA  Option(conId=623628855, symbol='NVDA', lastTra... -21.331828
+44   NVDA  Option(conId=623628909, symbol='NVDA', lastTra... -31.445428
+45   NVDA  Option(conId=623628976, symbol='NVDA', lastTra... -25.000000
+46   NVDA  Option(conId=623629029, symbol='NVDA', lastTra... -34.615385
+47   NVDA  Option(conId=623629164, symbol='NVDA', lastTra... -27.586207
+48   NVDA  Option(conId=623629291, symbol='NVDA', lastTra... -37.857143
+49   NVDA  Option(conId=623629445, symbol='NVDA', lastTra... -31.250000
+50   NVDA  Option(conId=623629505, symbol='NVDA', lastTra... -41.351351
+51   NVDA  Option(conId=623629574, symbol='NVDA', lastTra... -27.777778
+52   NVDA  Option(conId=623629626, symbol='NVDA', lastTra... -34.000000
+   symbol                                           contract       gain
+0    NVDA  Option(conId=642063674, symbol='NVDA', lastTra... -28.571429
+1    NVDA  Option(conId=642063775, symbol='NVDA', lastTra... -37.500000
+2    NVDA  Option(conId=642063937, symbol='NVDA', lastTra...  -5.555556
+3    NVDA  Option(conId=642063977, symbol='NVDA', lastTra...  -4.347826
+4    NVDA  Option(conId=642064019, symbol='NVDA', lastTra...   6.666667
+5    NVDA  Option(conId=642064073, symbol='NVDA', lastTra...  12.195122
+6    NVDA  Option(conId=645484066, symbol='NVDA', lastTra... -10.714286
+7    NVDA  Option(conId=555936613, symbol='NVDA', lastTra...  19.387755
+8    NVDA  Option(conId=623629949, symbol='NVDA', lastTra...  18.307692
+9    NVDA  Option(conId=646348460, symbol='NVDA', lastTra...   9.114583
+10   NVDA  Option(conId=642062985, symbol='NVDA', lastTra... -31.363636
+11   NVDA  Option(conId=642063042, symbol='NVDA', lastTra... -39.201995
+12   NVDA  Option(conId=642063092, symbol='NVDA', lastTra... -42.424242
+13   NVDA  Option(conId=642063138, symbol='NVDA', lastTra... -45.724907
+14   NVDA  Option(conId=642063189, symbol='NVDA', lastTra... -48.940092
+15   NVDA  Option(conId=642063239, symbol='NVDA', lastTra... -54.137931
+16   NVDA  Option(conId=642063284, symbol='NVDA', lastTra... -56.541353
+17   NVDA  Option(conId=642063329, symbol='NVDA', lastTra... -58.039216
+18   NVDA  Option(conId=642063373, symbol='NVDA', lastTra... -60.779221
+19   NVDA  Option(conId=642063422, symbol='NVDA', lastTra... -63.934426
+20   NVDA  Option(conId=642063470, symbol='NVDA', lastTra... -65.822785
+21   NVDA  Option(conId=642063508, symbol='NVDA', lastTra... -65.555556
+22   NVDA  Option(conId=642063556, symbol='NVDA', lastTra... -66.666667
+23   NVDA  Option(conId=642210462, symbol='NVDA', lastTra... -67.567568
+24   NVDA  Option(conId=643531865, symbol='NVDA', lastTra... -67.045455
+25   NVDA  Option(conId=642210527, symbol='NVDA', lastTra... -65.625000
+26   NVDA  Option(conId=643531945, symbol='NVDA', lastTra... -67.241379
+27   NVDA  Option(conId=642210584, symbol='NVDA', lastTra... -68.181818
+28   NVDA  Option(conId=642210632, symbol='NVDA', lastTra... -62.068966
+29   NVDA  Option(conId=645047563, symbol='NVDA', lastTra... -22.972361
+30   NVDA  Option(conId=645047656, symbol='NVDA', lastTra... -32.427184
+31   NVDA  Option(conId=645047763, symbol='NVDA', lastTra... -27.672956
+32   NVDA  Option(conId=645047870, symbol='NVDA', lastTra... -35.526316
+33   NVDA  Option(conId=645047975, symbol='NVDA', lastTra... -38.132296
+34   NVDA  Option(conId=645048097, symbol='NVDA', lastTra... -35.532995
+35   NVDA  Option(conId=645048230, symbol='NVDA', lastTra... -43.333333
+36   NVDA  Option(conId=645048344, symbol='NVDA', lastTra... -42.857143
+37   NVDA  Option(conId=645048464, symbol='NVDA', lastTra... -45.454545
+38   NVDA  Option(conId=645048693, symbol='NVDA', lastTra... -47.901235
+39   NVDA  Option(conId=645048784, symbol='NVDA', lastTra... -45.454545
+40   NVDA  Option(conId=623628699, symbol='NVDA', lastTra... -25.451264
+41   NVDA  Option(conId=623628740, symbol='NVDA', lastTra... -22.246220
+42   NVDA  Option(conId=623628811, symbol='NVDA', lastTra... -23.658537
+43   NVDA  Option(conId=623628855, symbol='NVDA', lastTra... -21.331828
+44   NVDA  Option(conId=623628909, symbol='NVDA', lastTra... -31.445428
+45   NVDA  Option(conId=623628976, symbol='NVDA', lastTra... -25.000000
+46   NVDA  Option(conId=623629029, symbol='NVDA', lastTra... -34.615385
+47   NVDA  Option(conId=623629164, symbol='NVDA', lastTra... -27.586207
+48   NVDA  Option(conId=623629291, symbol='NVDA', lastTra... -37.857143
+49   NVDA  Option(conId=623629445, symbol='NVDA', lastTra... -31.250000
+50   NVDA  Option(conId=623629505, symbol='NVDA', lastTra... -41.351351
+51   NVDA  Option(conId=623629574, symbol='NVDA', lastTra... -27.777778
+52   NVDA  Option(conId=623629626, symbol='NVDA', lastTra... -34.000000
+Total Time Taken to scan is 0:03:36.072182
+trying to login
+2023-08-28 10:55:17.201510-04:00  :  connected 
+[Option(conId=555936613, symbol='NVDA', lastTradeDateOrContractMonth='20230915', strike=400.0, right='P', multiplier='100', exchange='SMART', currency='USD', localSymbol='NVDA  230915P00400000', tradingClass='NVDA')]
+Error 110, reqId 5: The price does not conform to the minimum price variation for this contract.
+Canceled order: Trade(contract=Option(conId=555936613, symbol='NVDA', lastTradeDateOrContractMonth='20230915', strike=400.0, right='P', multiplier='100', exchange='SMART', currency='USD', localSymbol='NVDA  230915P00400000', tradingClass='NVDA'), order=LimitOrder(orderId=5, clientId=9462, action='BUY', totalQuantity=1, lmtPrice=2.4450000000000003), orderStatus=OrderStatus(orderId=5, status='Cancelled', filled=0.0, remaining=0.0, avgFillPrice=0.0, permId=0, parentId=0, lastFillPrice=0.0, clientId=0, whyHeld='', mktCapPrice=0.0), fills=[], log=[TradeLogEntry(time=datetime.datetime(2023, 8, 28, 14, 55, 18, 215746, tzinfo=datetime.timezone.utc), status='PendingSubmit', message='', errorCode=0), TradeLogEntry(time=datetime.datetime(2023, 8, 28, 14, 55, 18, 315304, tzinfo=datetime.timezone.utc), status='Cancelled', message='Error 110, reqId 5: The price does not conform to the minimum price variation for this contract.', errorCode=110)], advancedError='')
+Trade(contract=Option(conId=555936613, symbol='NVDA', lastTradeDateOrContractMonth='20230915', strike=400.0, right='P', multiplier='100', exchange='SMART', currency='USD', localSymbol='NVDA  230915P00400000', tradingClass='NVDA'), order=LimitOrder(orderId=5, clientId=9462, action='BUY', totalQuantity=1, lmtPrice=2.4450000000000003), orderStatus=OrderStatus(orderId=5, status='Cancelled', filled=0.0, remaining=0.0, avgFillPrice=0.0, permId=0, parentId=0, lastFillPrice=0.0, clientId=0, whyHeld='', mktCapPrice=0.0), fills=[], log=[TradeLogEntry(time=datetime.datetime(2023, 8, 28, 14, 55, 18, 215746, tzinfo=datetime.timezone.utc), status='PendingSubmit', message='', errorCode=0), TradeLogEntry(time=datetime.datetime(2023, 8, 28, 14, 55, 18, 315304, tzinfo=datetime.timezone.utc), status='Cancelled', message='Error 110, reqId 5: The price does not conform to the minimum price variation for this contract.', errorCode=110)], advancedError='')
+tp limit order placed
+Error 110, reqId 9: The price does not conform to the minimum price variation for this contract.
+Canceled order: Trade(contract=Option(conId=642210584, symbol='NVDA', lastTradeDateOrContractMonth='20230901', strike=530.0, right='C', multiplier='100', exchange='SMART', currency='USD', localSymbol='NVDA  230901C00530000', tradingClass='NVDA'), order=LimitOrder(orderId=9, clientId=9462, action='SELL', totalQuantity=1, lmtPrice=0.14500000000000002), orderStatus=OrderStatus(orderId=9, status='Cancelled', filled=0.0, remaining=0.0, avgFillPrice=0.0, permId=0, parentId=0, lastFillPrice=0.0, clientId=0, whyHeld='', mktCapPrice=0.0), fills=[], log=[TradeLogEntry(time=datetime.datetime(2023, 8, 28, 14, 55, 20, 149783, tzinfo=datetime.timezone.utc), status='PendingSubmit', message='', errorCode=0), TradeLogEntry(time=datetime.datetime(2023, 8, 28, 14, 55, 20, 152798, tzinfo=datetime.timezone.utc), status='Cancelled', message='Error 110, reqId 9: The price does not conform to the minimum price variation for this contract.', errorCode=110)], advancedError='')
+Trade(contract=Option(conId=642210584, symbol='NVDA', lastTradeDateOrContractMonth='20230901', strike=530.0, right='C', multiplier='100', exchange='SMART', currency='USD', localSymbol='NVDA  230901C00530000', tradingClass='NVDA'), order=LimitOrder(orderId=9, clientId=9462, action='SELL', totalQuantity=1, lmtPrice=0.14500000000000002), orderStatus=OrderStatus(orderId=9, status='Cancelled', filled=0.0, remaining=0.0, avgFillPrice=0.0, permId=0, parentId=0, lastFillPrice=0.0, clientId=0, whyHeld='', mktCapPrice=0.0), fills=[], log=[TradeLogEntry(time=datetime.datetime(2023, 8, 28, 14, 55, 20, 149783, tzinfo=datetime.timezone.utc), status='PendingSubmit', message='', errorCode=0), TradeLogEntry(time=datetime.datetime(2023, 8, 28, 14, 55, 20, 152798, tzinfo=datetime.timezone.utc), status='Cancelled', message='Error 110, reqId 9: The price does not conform to the minimum price variation for this contract.', errorCode=110)], advancedError='')
+tp limit order placed
+Error 110, reqId 10: The price does not conform to the minimum price variation for this contract.
+Canceled order: Trade(contract=Option(conId=642210584, symbol='NVDA', lastTradeDateOrContractMonth='20230901', strike=530.0, right='C', multiplier='100', exchange='SMART', currency='USD', localSymbol='NVDA  230901C00530000', tradingClass='NVDA'), order=LimitOrder(orderId=10, clientId=9462, action='BUY', totalQuantity=1, lmtPrice=-0.2), orderStatus=OrderStatus(orderId=10, status='Cancelled', filled=0.0, remaining=0.0, avgFillPrice=0.0, permId=0, parentId=0, lastFillPrice=0.0, clientId=0, whyHeld='', mktCapPrice=0.0), fills=[], log=[TradeLogEntry(time=datetime.datetime(2023, 8, 28, 14, 55, 21, 160695, tzinfo=datetime.timezone.utc), status='PendingSubmit', message='', errorCode=0), TradeLogEntry(time=datetime.datetime(2023, 8, 28, 14, 55, 21, 162703, tzinfo=datetime.timezone.utc), status='Cancelled', message='Error 110, reqId 10: The price does not conform to the minimum price variation for this contract.', errorCode=110)], advancedError='')
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time
+waiting for bot close time

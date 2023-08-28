@@ -1,0 +1,13 @@
+time is:- 2023-08-28 09:58:14.955205-04:00
+trying to login
+2023-08-28 09:58:15.582992-04:00  :  connected 
+Traceback (most recent call last):
+  File "f:\fintech\dinesh\main.py", line 142, in <module>
+    main_process(ibkr)
+  File "f:\fintech\dinesh\main.py", line 34, in main_process
+    for code,n,dir in zip(creds.scan_code,creds.top_n,creds.direction):
+TypeError: 'int' object is not iterable
+Exception ignored in: <helpers.log.logger.<locals>.Tee object at 0x000001B5CA27B1C0>
+AttributeError: 'Tee' object has no attribute 'flush'
+Exception ignored in sys.unraisablehook: <built-in function unraisablehook>
+AttributeError: 'Tee' object has no attribute 'flush'

@@ -25,7 +25,6 @@ def close_all_positions(ib):
         trade = ib.placeOrder(contract, order)
         print(trade)
 def login():
-            
             print("trying to login")
             while True:  
                 try:
@@ -53,12 +52,12 @@ def isconnected(ib):
 def get_random():
     random_id = random.randint(0, 9999)
     return random_id
-def top_gainer_subscription(ib):
+def top_gainer_subscription(ib,scancode):
     sub = ScannerSubscription(
     instrument='STK',
     locationCode='STK.US.MAJOR',
-    scanCode=creds.scan_code)
-
+    scanCode=scancode
+    )
     tagValues = [
         #TagValue("changePercAbove", "5"),
         TagValue('hasOptionsIs', "true"),
@@ -103,35 +102,60 @@ def get_options_chain(contract,ib):
          contracts=contracts[:300]
     return contracts
 
-def check_perc_change(ib,contract,ticker):
+def check_perc_change(ib,contract,ticker,direction):
         current_price = ticker.last
         bars = ib.reqHistoricalData(contract, endDateTime='', durationStr='1 D', barSizeSetting='1 min', whatToShow='TRADES', useRTH=True)
         if len(bars)>0:
             open_price = bars[0].open
             percentage_change = ((current_price - open_price) / open_price) * 100
             #percentage_change=100
-            if percentage_change >= creds.option_perc:
-                    return ({
-                    'symbol':contract.symbol,
-                    'contract': contract,
-                    'gain': percentage_change})
+            if str(direction)=="BUY":
+                if percentage_change >= creds.option_perc:
+                        return ({
+                        'symbol':contract.symbol,
+                        'contract': contract,
+                        'gain': percentage_change})
+            else:
+                print("direction is",direction," and percentage change is ",percentage_change)
+                if percentage_change <= creds.option_perc:
+                        return ({
+                        'symbol':contract.symbol,
+                        'contract': contract,
+                        'gain': percentage_change})
         return None
-def filter_contracts(ib, contracts):
+def filter_contracts(ib, contracts,symbol_direction_dict):
     def process_ticker(contract, ticker):
         if ((ticker.volume < creds.option_contract_volume) or (str(ticker.volume) == "nan")):
             print(str(ticker.volume),"volume condition not met")
             return None
         current_price = ticker.last
-
         if current_price > creds.option_max_price:
-            print("price condition not met",current_price)
-            return None
+            if current_price<creds.option_min_price:
+                print("price condition not met",current_price)
+                return None
         print("price is", current_price, "volume is ", ticker.volume)
+        bid_price=ticker.bid #test
+        ask_price=ticker.ask #test
+        if(abs(ask_price-bid_price)>creds.bid_ask_diff):
+             print("bid ask condition not met:- ",abs(ask_price-bid_price))
+             return None
+        
+        open_interest = ticker.futuresOpenInterest
+        if(open_interest != "nan"):
+            print("OI is ",open_interest)
+            if(open_interest>creds.max_open_intrest):
+                return None
+        print("filter passed")
         return (contract, ticker)
 
-    def process_selected_item(process):
+    def process_selected_item(process,symbol_direction_dict):
         contract, ticker = process
-        result = check_perc_change(ib, contract, ticker)
+        print(contract)
+        
+        symbol=contract.symbol
+        direction = symbol_direction_dict.get(symbol)
+        print(symbol,direction)
+        result = check_perc_change(ib, contract, ticker,direction)
         if result:
             return result
         return None
@@ -144,7 +168,7 @@ def filter_contracts(ib, contracts):
     print("length of selected is",len(selected))
     final=[]
     for item in selected:
-        i=process_selected_item(item)
+        i=process_selected_item(item,symbol_direction_dict)
         if i:
             print(i,"%")
             final.append(i)

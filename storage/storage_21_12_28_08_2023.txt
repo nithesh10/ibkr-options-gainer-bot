@@ -1,0 +1,18 @@
+time is:- 2023-08-28 11:42:49.342628-04:00
+trying to login
+2023-08-28 11:42:49.455219-04:00  :  connected 
+Total Time Taken to scan is 0:00:00.113600
+trying to login
+2023-08-28 11:42:49.669414-04:00  :  connected 
+[Option(conId=555936613, symbol='NVDA', lastTradeDateOrContractMonth='20230915', strike=400.0, right='P', multiplier='100', exchange='SMART', currency='USD', localSymbol='NVDA  230915P00400000', tradingClass='NVDA')]
+[ContractDetails(contract=Contract(secType='OPT', conId=555936613, symbol='NVDA', lastTradeDateOrContractMonth='20230915', strike=400.0, right='P', multiplier='100', exchange='SMART', currency='USD', localSymbol='NVDA  230915P00400000', tradingClass='NVDA'), marketName='NVDA', minTick=0.01, orderTypes='ACTIVETIM,AD,ADJUST,ALERT,ALGO,ALLOC,AON,AVGCOST,BASKET,COND,CONDORDER,DAY,DEACT,DEACTDIS,DEACTEOD,DIS,FOK,GAT,GTC,GTD,GTT,HID,ICE,IOC,LIT,LMT,MIT,MKT,MTL,NGCOMB,NONALGO,OCA,OPENCLOSE,PAON,PEGMIDVOL,PEGMKTVOL,PEGPRMVOL,PEGSRFVOL,POSTONLY,PRICECHK,REL,RELPCTOFS,RELSTK,SCALE,SCALERST,SIZECHK,SMARTSTG,SNAPMID,SNAPMKT,SNAPREL,STP,STPLMT,TRAIL,TRAILLIT,TRAILLMT,TRAILMIT,VOLAT,WHATIF', validExchanges='SMART,AMEX,CBOE,PHLX,PSE,ISE,BOX,BATS,NASDAQOM,CBOE2,NASDAQBX,MIAX,GEMINI,EDGX,MERCURY,PEARL,EMERALD,IBUSOPT', priceMagnifier=1, underConId=4815747, longName='NVIDIA CORP', contractMonth='202309', industry='Technology', category='Semiconductors', subcategory='Electronic Compo-Semicon', timeZoneId='US/Eastern', tradingHours='20230828:0930-20230828:1600;20230829:0930-20230829:1600;20230830:0930-20230830:1600;20230831:0930-20230831:1600;20230901:0930-20230901:1600', liquidHours='20230828:0930-20230828:1600;20230829:0930-20230829:1600;20230830:0930-20230830:1600;20230831:0930-20230831:1600;20230901:0930-20230901:1600', evRule='', evMultiplier=0, mdSizeMultiplier=1, aggGroup=2, underSymbol='NVDA', underSecType='STK', marketRuleIds='32,109,109,109,109,109,109,109,32,109,32,109,109,109,109,109,109,32', secIdList=[], realExpirationDate='20230915', lastTradeTime='', stockType='', minSize=1.0, sizeIncrement=1.0, suggestedSizeIncrement=1.0, cusip='', ratings='', descAppend='', bondType='', couponType='', callable=False, putable=False, coupon=0, convertible=False, maturity='', issueDate='', nextOptionDate='', nextOptionType='', nextOptionPartial=False, notes='')]
+Traceback (most recent call last):
+  File "f:\fintech\dinesh\main.py", line 196, in <module>
+    trader(ibkr.ib)
+  File "f:\fintech\dinesh\main.py", line 104, in trader
+    min_tick=details.MinTick
+AttributeError: 'list' object has no attribute 'MinTick'
+Exception ignored in: <helpers.log.logger.<locals>.Tee object at 0x00000234F90785E0>
+AttributeError: 'Tee' object has no attribute 'flush'
+Exception ignored in sys.unraisablehook: <built-in function unraisablehook>
+AttributeError: 'Tee' object has no attribute 'flush'

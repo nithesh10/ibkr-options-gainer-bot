@@ -1,0 +1,18 @@
+time is:- 2023-08-28 11:41:20.136065-04:00
+trying to login
+2023-08-28 11:41:20.447962-04:00  :  connected 
+Total Time Taken to scan is 0:00:00.312950
+trying to login
+2023-08-28 11:41:20.662903-04:00  :  connected 
+[Option(conId=555936613, symbol='NVDA', lastTradeDateOrContractMonth='20230915', strike=400.0, right='P', multiplier='100', exchange='SMART', currency='USD', localSymbol='NVDA  230915P00400000', tradingClass='NVDA')]
+0.01
+Traceback (most recent call last):
+  File "f:\fintech\dinesh\main.py", line 195, in <module>
+    trader(ibkr.ib)
+  File "f:\fintech\dinesh\main.py", line 103, in trader
+    min_tick=details.MinTick
+AttributeError: 'list' object has no attribute 'MinTick'
+Exception ignored in: <helpers.log.logger.<locals>.Tee object at 0x00000221516185E0>
+AttributeError: 'Tee' object has no attribute 'flush'
+Exception ignored in sys.unraisablehook: <built-in function unraisablehook>
+AttributeError: 'Tee' object has no attribute 'flush'
