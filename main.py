@@ -11,13 +11,14 @@ from itertools import chain
 from datetime import datetime
 import creds
 import pytz
-from helpers.log import logger
+from helpers.log import logger,logger_f
 eastern = pytz.timezone('US/Eastern')
 def process_symbols_batch(symbols_batch,symbol_direction_dict):
     sym=""
     for symbol in symbols_batch:
-        sym+=symbol+"_"
-    logger(f"storage/{sym}")
+        sym+=str(symbol.symbol)+"_"
+    print(sym)
+    logger_f(f"{sym}")
     print(symbol_direction_dict)
     results = []
     ibkr = IBWrapper()
