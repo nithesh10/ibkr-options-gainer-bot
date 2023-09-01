@@ -92,7 +92,7 @@ def get_valid_precision(price: float, min_tick: float) -> float:
 	return valid_price
 
 def create_buy_autotrader(contract):
-    ib_wrapper = IBWrapper(creds.port)
+    ib_wrapper = IBWrapper()
     ib=ib_wrapper.ib
     details = ib.reqContractDetails(contract)
     min_tick=details[0].minTick
@@ -126,7 +126,7 @@ def create_buy_autotrader(contract):
     print("tp limit order placed")
 
 def create_sell_autotrader(contract):
-    ib_wrapper = IBWrapper(creds.port)
+    ib_wrapper = IBWrapper()
     ib=ib_wrapper.ib
     details = ib.reqContractDetails(contract)
     min_tick=details[0].minTick
@@ -159,16 +159,17 @@ def create_sell_autotrader(contract):
     tp_trade = ib.placeOrder(contract, tp_order)
     print("tp limit order placed")
 def trader(ib):
-    top_option_df=pd.read_csv("options_final.csv")
-    top_gainers = top_option_df.loc[top_option_df.groupby('symbol')['gain'].idxmax()]
-    top_gainers = top_gainers[top_gainers['gain'] > 0]
-    
-    top_gainers.to_csv("gainers.csv")
-    contracts=top_gainers["contract"].to_list()
-    contracts=[eval(contract) for contract in contracts]
-    contracts = ib.qualifyContracts(*contracts)
-    pool = mp.Pool(processes=len(contracts))
-    pool.map(create_buy_autotrader, contracts)
+    if "BUY" in creds.direction:
+        top_option_df=pd.read_csv("options_final.csv")
+        top_gainers = top_option_df.loc[top_option_df.groupby('symbol')['gain'].idxmax()]
+        top_gainers = top_gainers[top_gainers['gain'] > 0]
+        
+        top_gainers.to_csv("gainers.csv")
+        contracts=top_gainers["contract"].to_list()
+        contracts=[eval(contract) for contract in contracts]
+        contracts = ib.qualifyContracts(*contracts)
+        pool = mp.Pool(processes=len(contracts))
+        pool.map(create_buy_autotrader, contracts)
         
     if "SELL" in creds.direction:
         top_losers = top_option_df.loc[top_option_df.groupby('symbol')['gain'].idxmin()]
