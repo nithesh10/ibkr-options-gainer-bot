@@ -14,6 +14,10 @@ import pytz
 from helpers.log import logger
 eastern = pytz.timezone('US/Eastern')
 def process_symbols_batch(symbols_batch,symbol_direction_dict):
+    sym=""
+    for symbol in symbols_batch:
+        sym+=symbol+"_"
+    logger(f"storage/{sym}")
     print(symbol_direction_dict)
     results = []
     ibkr = IBWrapper()
