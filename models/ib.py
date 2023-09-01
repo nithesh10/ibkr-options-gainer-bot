@@ -5,7 +5,7 @@ from helpers.ib_func import login
 class IBWrapper:
     def __init__(self):
         self.ib = IB()
-    
+        self.connect()
     def connectAsync(self):
         self.ib=login()
     def connect(self):
