@@ -159,8 +159,8 @@ def create_sell_autotrader(contract):
     tp_trade = ib.placeOrder(contract, tp_order)
     print("tp limit order placed")
 def trader(ib):
+    top_option_df=pd.read_csv("options_final.csv")
     if "BUY" in creds.direction:
-        top_option_df=pd.read_csv("options_final.csv")
         top_gainers = top_option_df.loc[top_option_df.groupby('symbol')['gain'].idxmax()]
         top_gainers = top_gainers[top_gainers['gain'] > 0]
         
